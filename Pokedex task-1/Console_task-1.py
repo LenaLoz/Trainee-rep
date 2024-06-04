@@ -55,10 +55,6 @@ def top_matches():
             top_match = Pokedex.top_matches(name_pokemon)
             if top_match:
                 top_match2= [x.matched for x in top_match[0]]
-                #[
-                # [Match(start=37, end=41, dist=0, matched='Mamu'),
-                # Match(start=45, end=49, dist=1, matched='Manu')]
-                # ]
                 print(top_match2)
             else:
                 print(f'No matches found for "{name_pokemon}".')

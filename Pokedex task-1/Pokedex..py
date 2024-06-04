@@ -157,7 +157,7 @@ def search(name_pokemon: str):
         raise ValueError("The Pokemon name cannot be empty.")
     matches = {name: details for name, details in pokemon_data.items() if
                name.lower().startswith(name_pokemon[:2].lower())}
-    # matches = {name: details for name, details in pokemon_data.items() if name_pokemon.lower() in name.lower()}
+
     if matches:
         return matches
     else:
