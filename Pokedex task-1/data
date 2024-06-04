@@ -1,0 +1,37 @@
+{
+    "Pikachu": {
+        "type": "Electric",
+        "abilities": [
+            "Static",
+            "Lightning Rod"
+        ],
+        "stats": {
+            "HP": 35,
+            "Attack": 55,
+            "Defense": 40
+        },
+        "moves": [
+            "Quick Attack",
+            "Thunderbolt",
+            "Iron Tail"
+        ]
+    },
+    "Charmander": {
+        "type": "Fire",
+        "abilities": [
+            "Blaze",
+            "Solar Power"
+        ],
+        "stats": {
+            "HP": 39,
+            "Attack": 52,
+            "Defense": 43
+        },
+        "moves": [
+            "Ember",
+            "Scratch",
+            "Flamethrower",
+            "Fire Spin"
+        ]
+    }
+}
