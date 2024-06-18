@@ -227,7 +227,7 @@ class Fight():
         logging.info(f"Бой между {self.pokemon1.name} и {self.pokemon2.name} начался.")
         while self.status == FightStatus.IN_PROGRESS:
             turn_result = self.perform_turn()
-            if turn_result:  # Если метод perform_turn вернул True, прерываем цикл
+            if turn_result:
                 logging.info("Бой завершен.")
                 break
 
@@ -256,7 +256,6 @@ battle.start_fight()
 
 # Печать результатов битвы
 if battle.status == FightStatus.FINISH:
-    print(
-        f"Битва завершена. Победитель: {battle.pokemon1.name if battle.pokemon1.health > 0 else battle.pokemon2.name}")
+    print(f"Битва завершена. Победитель: {battle.pokemon1.name if battle.pokemon1.health > 0 else battle.pokemon2.name}")
     print(f"{ash.name} - Побед: {ash.victory}, Поражений: {ash.failure}")
     print(f"{misty.name} - Побед: {misty.victory}, Поражений: {misty.failure}")
