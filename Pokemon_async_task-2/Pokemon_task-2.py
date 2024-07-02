@@ -3,9 +3,26 @@ import concurrent.futures
 import aiohttp
 import random
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
 from tabulate import tabulate
+from os import getenv
+from fastapi import status
+from fastapi.exceptions import HTTPException
 
-API_KEY = 'xxx'
+load_dotenv()
+
+
+def get_api_key():
+    api_key = getenv("API_KEY")
+    if not api_key:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Missing API Key",
+        )
+    return api_key
+
+
+API_KEY = get_api_key()
 
 
 class Pokemon:
@@ -103,7 +120,8 @@ async def interesting_facts(random_pokemons):
         "Authorization": f"Bearer {API_KEY}"
     }
     i = 1
-    facts_request_content = "Tell me ONE interesting fact about each of the following Pokémon, but don't mention the pokémon's name twice in a sentence"
+    facts_request_content = ("Tell me ONE interesting fact about each of the following Pokémon, but don't mention the "
+                             "pokémon's name twice in a sentence")
     facts_request_content += "\n".join([f"{i + 1} {pokemon.name}" for i, pokemon in enumerate(random_pokemons)])
 
     # Debugging print
